@@ -5,6 +5,7 @@ import ConfigComponent from "@/tracking/pages/config.component.vue";
 import PayTicketComponent from "@/tracking/pages/pay-ticket.component.vue";
 import SearchRoutesComponent from "@/tracking/pages/search-routes.component.vue";
 import SupportComponent from "@/tracking/pages/support.component.vue";
+import LoginComponent from "@/tracking/pages/login.component.vue";
 
 const router  = createRouter({
     history: createWebHistory(),
@@ -15,7 +16,8 @@ const router  = createRouter({
         {path: '/pay-ticket', component: PayTicketComponent, meta: {title: 'Pagar Pasaje'}},
         {path: '/search-routes', component: SearchRoutesComponent, meta: {title: 'Buscar Rutas'}},
         {path:'/support',component: SupportComponent,meta: {title: 'Support'}},
-        {path: '/', redirect: '/search-routes'},
+        {path: '/login', component: LoginComponent, meta: {title: 'Login'}},
+        {path: '/', redirect: '/login'},
 
     ],
 });
