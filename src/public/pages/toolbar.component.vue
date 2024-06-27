@@ -35,7 +35,7 @@ export default {
       <div class="menu-items flex align-items-center gap-2">
         <h1 class="toolbar-title">TrackMyRoute</h1>
         <router-link v-for="item in items" :key="item.label" v-slot="{navigate,href}" :to="item.to" custom>
-          <pv-button  :href="href" class="p-button-text p-button-plain text-sm"  @click="navigate" style="color: blue;">
+          <pv-button  :href="href" class="p-button-text p-button-plain text-sm"  @click="navigate" style="color: blue; font-weight: bold;">
               {{item.label}}
           </pv-button>
         </router-link>

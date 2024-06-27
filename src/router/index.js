@@ -25,7 +25,7 @@ const router  = createRouter({
 router.beforeEach((to,
                    from,
                    next) => {
-    let baseTitle = 'TrackMyRoute1';
+    let baseTitle = 'TrackMyRoute';
     document.title = `${baseTitle} | ${to.meta['title']}`;
     next();
 });

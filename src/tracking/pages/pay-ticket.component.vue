@@ -28,37 +28,40 @@ export default {
       <h1 class="text-3xl font-bold">Pagar Pasaje</h1>
     </div>
     <div class="form">
-      <div class="select-field flex align-items-center justify-content-between">
-        <p class="text-xl">Seleccionar Bus/Empresa de Transporte:</p>
-        <pv-dropdown v-model="selectedBus" editable :options="typeBus" optionLabel="name" placeholder="Selecciona Bus/Empresa" class="w-full md:w-20rem" />
+      <div class="select-field flex align-items-center">
+        <p class="text-xl">Seleccionar Bus:</p>
+        <pv-dropdown v-model="selectedBus" editable :options="typeBus" optionLabel="name" placeholder="Selecciona Bus" class="w-full md:w-20rem" />
       </div>
 
-      <div class="select-field flex align-items-center justify-content-between">
+      <div class="select-field flex align-items-center">
         <p class="text-xl">Seleccionar Paradero de Origen:</p>
         <pv-dropdown v-model="selectedOrigin" editable :options="cities" optionLabel="name" placeholder="Selecciona Origen" class="w-full md:w-20rem" />
       </div>
 
-      <div class="select-field flex align-items-center justify-content-between">
+      <div class="select-field flex align-items-center">
         <p class="text-xl">Seleccionar Paradero de Destino:</p>
         <pv-dropdown v-model="selectedDestination" editable :options="cities" optionLabel="name" placeholder="Selecciona Destino" class="w-full md:w-20rem" />
       </div>
 
-      <div class="select-field flex align-items-center justify-content-between">
+      <div class="select-field flex align-items-center">
         <p class="text-xl">Total a Pagar:</p>
         <p class="money-mount">S/<span id="quantity">2.50</span></p>
       </div>
     </div>
     <div class="btn-container grid p-3">
-      <pv-button label="Pagar con Tarjeta" severity="info" raised/>
-      <pv-button label="Pagar con Yape" severity="info" raised/>
-      <pv-button label="Pagar con Plin" severity="info" raised/>
-      <pv-button label="Pagar con Paypal" severity="info" raised/>
+      <pv-button label="Pagar Pasaje" severity="info" raised/>
       <pv-button label="Generar Código de Validación" severity="warning" raised/>
     </div>
   </div>
 </template>
 
 <style scoped>
+
+.pay-ticket-container{
+  display: grid;
+  justify-items: center;
+  margin: 20px 0;
+}
 
 .money-mount, #quantity{
   font-weight: bold;
@@ -72,10 +75,6 @@ export default {
 
 .select-field{
   gap: 20px;
-  margin: 40px 0;
 }
 
-.pay-ticket-container{
-  margin: 20px 0;
-}
 </style>
