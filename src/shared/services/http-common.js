@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = 'https://my-json-server.typicode.com/G2-AplicacionesWeb-SI91';
+const API_BASE_URL = 'http://localhost:5172/api/v1';
 
 /**
  * Axios instance

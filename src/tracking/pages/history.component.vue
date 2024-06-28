@@ -1,6 +1,6 @@
 <script>
-import {Trip} from "@/tracking/model/trip/trip.entity.js";
-import {TripsApiService} from "@/tracking/services/trips/trips-api.service.js";
+import {Payment} from "@/tracking/model/payment/payment.entity.js";
+import {PaymentsApiService} from "@/tracking/services/payments/payments-api.service.js";
 
 export default {
   name: "history.component",
@@ -12,7 +12,7 @@ export default {
       selectedTrips: null,
       filters: {},
       submitted: false,
-      tripsService: null
+      paymentsService: null
     }
   },
   created() {
@@ -21,21 +21,23 @@ export default {
   methods: {
     initialize() {
       console.log('created');
-      this.tripService = new TripsApiService();
-      this.tripService.getAll()
+      this.paymentsService = new PaymentsApiService();
+      this.paymentsService.getAllPayments()
           .then(response => {
             this.trips = response.data;
             this.trips = this.trips.map(
                 (trip) =>{
-                  return Trip.toDisplayableTrip(trip)
+                  return Payment.toDisplayablePayment(trip)
                 }
             );
             console.log(response.data);
+            console.log(this.trips);
           });
+
     }
   }
-
 }
+
 </script>
 
 <template>
@@ -46,25 +48,24 @@ export default {
                  :rowsPerPageOptions="[5, 10, 15]"
                  :value="trips"
                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} trips"
-                 dataKey="id"
+                 dataKey="Id"
                  paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink
                                     LastPageLink CurrentPageReport RowsPerPageDropdown"
                  responsiveLayout="scroll">
 
-    <template #header>
-      <div class="table-header gap-2 align-items-center justify-content-between">
-        <h4 class="m-0">Searching my routes</h4>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search"/>
-          </span>
-      </div>
-    </template>
-    <pv-column :sortable="true" field="type" header="type" style="min-width: 16rem"/>
-    <pv-column :sortable="true" field="origin" header="origin" style="min-width: 12rem"/>
-    <pv-column :sortable="true" field="destination" header="destination" style="min-width: 16rem"/>
-    <pv-column :sortable="true" field="startDate" header="startDate" style="min-width: 12rem"/>
-    <pv-column :sortable="true" field="endDate" header="endDate" style="min-width: 16rem"/>
-    <pv-column :sortable="true" field="price" header="price" style="min-width: 12rem"/>
+      <template #header>
+        <div class="table-header gap-2 align-items-center justify-content-between">
+          <h4 class="m-0">Searching my routes</h4>
+          <span class="p-input-icon-left">
+              <i class="pi pi-search"/>
+            </span>
+        </div>
+      </template>
+      <pv-column :sortable="true" field="Id" header="Id" style="min-width: 16rem"/>
+      <pv-column :sortable="true" field="BusName" header="BusName" style="min-width: 16rem"/>
+      <pv-column :sortable="true" field="OriginName" header="OriginName" style="min-width: 12rem"/>
+      <pv-column :sortable="true" field="DestinationName" header="DestinationName" style="min-width: 16rem"/>
+      <pv-column :sortable="true" field="TicketPrice" header="TicketPrice" style="min-width: 12rem"/>
   </pv-data-table>
 </template>
 
