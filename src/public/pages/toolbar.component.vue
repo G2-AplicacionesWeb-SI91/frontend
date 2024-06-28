@@ -1,9 +1,14 @@
 <script>
 import { ref } from "vue";
+import AuthenticationSection from "@/iam/components/authentication-section.component.vue";
 const visibleRight = ref(false);
+import router from "@/router/index.js";
+import { computed } from 'vue';
+import { useAuthenticationStore } from "@/iam/services/authentication.store.js";
 
 export default {
       name:'toolbar.component',
+  components: {AuthenticationSection},
       title:'Toolbar',
       data() {
         return {
@@ -57,6 +62,7 @@ export default {
             aria-label="support"
             @click="navigateTo('/support')"
         />
+        <authentication-section/>
       </div>
     </template>
   </pv-toolbar>
