@@ -16,7 +16,7 @@ const router  = createRouter({
         {path: '/history', component: HistoryComponent, meta: {title: 'Historial de viajes'}},
         {path: '/config', component: ConfigComponent, meta: {title: 'Configuracion'}},
         {path: '/pay-ticket', component: PayTicketComponent, meta: {title: 'Pagar Pasaje'}},
-        {path: '/search-routes', component: SearchRoutesComponent, meta: {title: 'Buscar Rutas'}},
+        {path: '/search-routes', name: 'search-routes', component: SearchRoutesComponent, meta: {title: 'Buscar Rutas'}},
         {path:'/support',component: SupportComponent,meta: {title: 'Support'}},
         {path: '/sign-in', name: 'sign-in', component: SignInComponent, meta: { title: 'Sign In' } },
         {path: '/sign-up', name: 'sign-up', component: SignUpComponent, meta: { title: 'Sign Up' } },

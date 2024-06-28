@@ -60,7 +60,7 @@ export const useAuthenticationStore = defineStore( {
                 })
                 .catch(error => {
                     console.error(error);
-                    router.push({name: 'sign-in'});
+                    router.push({name: 'search-routes'});
                 });
         },
         async signUp(signUpRequest, router){
