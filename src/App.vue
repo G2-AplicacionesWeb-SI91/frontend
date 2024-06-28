@@ -4,7 +4,7 @@
   import PayTicket from "@/tracking/pages/pay-ticket.component.vue"
   export default {
     name: "App",
-    title: "TrackMyRoute2",
+    title: "TrackMyRoute",
     components: {SearchRoutes, Toolbar, PayTicket},
   }
 </script>
